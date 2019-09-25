@@ -1,5 +1,5 @@
 const net = require('net');
-/*
+/*  
  * Establishes connection with the game server
  */
 const connect = function() {
@@ -9,13 +9,17 @@ const connect = function() {
   });
   // interpret incoming data as text
   conn.setEncoding('utf8');
-  conn.on('connect', () => {
-    console.log("connected to the game server");
-  });
 
+  //log incoming data to the console
   conn.on('data', (data) => {
     console.log('--:', data)
   })
+
+  //log message to console when connected to server
+  conn.on('connect', () => {
+    console.log("Successfully connected to the game server");
+    conn.write("Name: BOI");
+  });
 
   return conn;
 }
@@ -23,4 +27,4 @@ const connect = function() {
 // console.log('Connecting ...');
 // connect();
 
-module.exports = connect;
+module.exports = { connect };
