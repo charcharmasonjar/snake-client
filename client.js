@@ -2,8 +2,8 @@ const net = require('net');
 /*  
  * Establishes connection with the game server
  */
-const connect = function() {
-  const conn = net.createConnection({ 
+const connect = function () {
+  const conn = net.createConnection({
     host: '192.168.88.254',
     port: 50541
   });
@@ -19,6 +19,10 @@ const connect = function() {
   conn.on('connect', () => {
     console.log("Successfully connected to the game server");
     conn.write("Name: BOI");
+    
+    setTimeout(() => {
+      conn.write("Move: down")
+    }, 1000); //move down one square (unless facing up)
   });
 
   return conn;
