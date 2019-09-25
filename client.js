@@ -20,13 +20,13 @@ const connect = function () {
     console.log("Successfully connected to the game server");
     conn.write("Name: BOI");
     
-    setTimeout(() => {
-      conn.write("Move: down")
-    }, 1000); //move down one square (unless facing up)
+  //   setTimeout(() => {
+  //     conn.write("Move: down")
+  //   }, 1000); //move down one square (unless facing up)
   });
-
   return conn;
-}
+};
+
 
 // console.log('Connecting ...');
 // connect();
